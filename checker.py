@@ -32,24 +32,20 @@ def getDict():
 
 def update_console():
     while True:
-        ctypes.windll.kernel32.SetConsoleTitleW(
-            f"Checked: {data.checked} | Valid: {data.valid} | Invalid: {data.invalid} | Redeemed: {data.redeemed} | Errors: {data.errors}")
-        # idk looks cooler for people to keep track on?
+        ctypes.windll.kernel32.SetConsoleTitleW(f"Checked: {data.checked} | Valid: {data.valid} | Invalid: {data.invalid} | Redeemed: {data.redeemed} | Errors: {data.errors}")
+        # idk looks cooler for people to keep track on and makes value +10000$???
 
 
 def check_promo(promo, proxy):
     if data.checked == len(promos):
         print("Checked all codes")
     url = f"https://discord.com/api/v9/entitlements/gift-codes/{promo.replace('https://discord.com/billing/promotions/', '').replace('https://promos.discord.gg/', '').replace('/', '')}"
-    # looks so shit
+    # looks so shit had to because people didnt know ctrl h existed
+    
     headers = {
-        "accept": "*/*",
-        "sec-fetch-dest": "empty",
-        "sec-fetch-mode": "cors",
-        "sec-fetch-site": "same-origin",
         'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36'
     }
-    # you can just keep user agent
+    # you can just keep user agent or add something idfk
     try:
         req = requests.get(url, headers=headers, proxies=proxy)
         if req.status_code == 404:
