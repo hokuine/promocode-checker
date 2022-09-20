@@ -13,11 +13,11 @@ class data:
     checked = 0
     errors = 0
     valid = 0
-
+# keep track on
 
 lock = threading.Lock()
 
-
+# info about the promo
 def info(msg, code, color):
     lock.acquire()
     print(f"{color} [!] {code} - {msg}{Fore.RESET}")
@@ -47,6 +47,7 @@ def check_promo(promo, proxy):
     }
     # you can just keep user agent or add something idfk
     try:
+        #checks codes based on status code
         req = requests.get(url, headers=headers, proxies=proxy)
         if req.status_code == 404:
             data.invalid += 1
