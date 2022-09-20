@@ -3,6 +3,7 @@ simple promo checker which checks if the promocode is either redeemed or valid o
 
 ![image](https://user-images.githubusercontent.com/108589518/191263518-116bb1df-e57a-4bfd-84c6-5f4866df49d6.png)
 
+u need http/https proxies
 
 # installation
 ```
