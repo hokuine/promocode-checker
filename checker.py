@@ -1,3 +1,5 @@
+# pls no sell if do send me 5$ ltc i am need of bread money
+# pls no skid pls no skid pls no skid pls no skid pls no skid pls no skid pls no skid pls no skid pls no skid pls no skid pls no skid pls no skid pls no skid pls no skid pls no skid pls no skid pls no skid pls no skid pls no skid pls no skid pls no skid pls no skid pls no skid 
 import threading
 import requests
 import random
@@ -8,11 +10,7 @@ promos = open("promos.txt", "r").read().splitlines()
 
 
 class data:
-    redeemed = 0
-    invalid = 0
-    checked = 0
-    errors = 0
-    valid = 0
+    redeemed = 0; invalid = 0; checked = 0; errors = 0; valid = 0
 # keep track on
 
 lock = threading.Lock()
@@ -50,23 +48,19 @@ def check_promo(promo, proxy):
         #checks codes based on status code
         req = requests.get(url, headers=headers, proxies=proxy)
         if req.status_code == 404:
-            data.invalid += 1
-            data.checked += 1
+            data.invalid += 1; data.checked += 1
             info("Invalid", promo, Fore.RED)
 
         elif req.status_code == 200 and req.json()["uses"] == 1:
-            data.redeemed += 1
-            data.checked += 1
+            data.redeemed += 1; data.checked += 1
             info("Redeemed", promo, Fore.RED)
 
         elif req.status_code == 200 and req.json()["uses"] == 0:
-            data.valid += 1
-            data.checked += 1
+            data.valid += 1; data.checked += 1
             info("Valid", promo, Fore.GREEN)
             open("valid.txt", 'a').write(promo + '\n')
         else:
-            data.errors += 1
-            data.checked += 1
+            data.errors += 1; data.checked += 1
             print(req.json())
     except Exception:
         check_promo(promo, proxy)
