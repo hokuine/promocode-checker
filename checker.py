@@ -64,7 +64,7 @@ def check_promo(promo, proxy):
             print(req.json())
     except Exception:
         check_promo(promo, proxy)
-        pass
+
 
 
 for promo in promos:
