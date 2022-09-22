@@ -1,1 +1,3 @@
-
+http / https proxies like iproyal
+user:pass:@host:port
+use sticky or ip whitelist idk
